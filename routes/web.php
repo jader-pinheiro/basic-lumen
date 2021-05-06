@@ -14,8 +14,8 @@
 $router->get('/', function () use ($router) {
 
 
-    //$teste = [];
-
+    $newArray = [];
+    //dd("aqui");
 
     $jader =  [
         'janeiro' => [
@@ -113,10 +113,10 @@ $router->get('/', function () use ($router) {
 
     $tt = $jader['janeiro'];
 
-    print_r($jader['janeiro']);
+    // print_r($jader['janeiro']);
 
 
-    dd($tt);
+    //dd($tt);
 
 
     // $sort = array(
@@ -132,16 +132,52 @@ $router->get('/', function () use ($router) {
     uasort(
         $tt,
         function ($value1, $value2) use ($tt) {
-            dd($value1, $value2, 'aqui');
+            //dd($value1, $value2, 'aqui');
             //return strcmp($value1['janeiro'], $value2[1]);
             //return array_search($value1, $jader) > array_search($value2, $jader);
 
-            return strcmp(array_search($value1, $tt), array_search($value2, $tt));
+            //return strcmp(array_search($value1, $tt), array_search($value2, $tt));
+            return array_search($value1, $tt) > array_search($value2, $tt);
         }
     );
 
-    dd($tt);
+    array_push($newArray, $tt);
 
+
+    uasort(
+        $tt,
+        function ($value1, $value2) use ($newArray) {
+            //dd($value1, $value2, 'aqui');
+            //return strcmp($value1['janeiro'], $value2[1]);
+            //return array_search($value1, $jader) > array_search($value2, $jader);
+
+            //return strcmp(array_search($value1, $tt), array_search($value2, $tt));
+            return array_search($value2, $newArray) > array_search($value1, $newArray);
+        }
+    );
+
+    // $rr =  rsort($newArray);
+
+    // dd($newArray);
+
+    // $j =   array_multisort(
+    //     $rr,
+    //     SORT_ASC,
+    //     SORT_STRING
+    // );
+
+    var_dump($newArray);
+    $ar = array(
+        array("10", 11, 100, 100, "a"),
+        array(1,  2, "2",   3,   1)
+    );
+    $t2 =  array_multisort(
+        $newArray,
+        SORT_ASC,
+        SORT_STRING
+    );
+    var_dump($newArray);
+    //  dd($j);
     //$t =   usort($sort, "usortTest");
 
     // dd($t);
@@ -151,6 +187,6 @@ $router->get('/', function () use ($router) {
 
 
 
-    dd("testenao");
+    //dd("testenao");
     return $router->app->version();
 });
