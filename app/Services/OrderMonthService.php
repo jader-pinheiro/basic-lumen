@@ -28,6 +28,7 @@ class OrderMonthService
         array_push($newArray, $abril);
         array_push($newArray, $maio);
         array_push($newArray, $junho);
+        //dd($newArray);
         return $newArray;
     }
 }

@@ -10,28 +10,34 @@ class ChangeListController extends Controller
     public function tester()
     {
 
+        $ttt = [];
         $teste = new OrderMonthService();
         // dd($teste
         $chk =  (array)$teste->ChangeList();
 
         // dd($chk[0]['janeiro']['alimentos']);
-        //$arr = $chk[0]['janeiro']['alimentos'];
-        $arr = $chk;
+        $arr = $chk[0]['janeiro'];
+        // dd($arr);
+        //$arr = $chk;
+        //dd($chk);
 
-
-        uasort(
+        usort(
             $arr,
             function ($value1, $value2) use ($arr) {
-                //dd($value1, $value2, 'aqui');
+                //dd($value1, $value2,  'aqui');
                 //return strcmp($value1['janeiro'], $value2[1]);
                 //return array_search($value1, $jader) > array_search($value2, $jader);
 
                 //return strcmp(array_search($value1, $tt), array_search($value2, $tt));
-                return  array_search($value2, $arr) < array_search($value1, $arr);
+                return  array_search($value1, $arr) > array_search($value2, $arr);
                 //return  sort($t, SORT_NUMERIC);
             }
         );
+        $alimentos['alimentos'] = $arr;
 
-        dd($arr);
+        array_push($ttt, $alimentos);
+        return $ttt;
+
+        dd($arr[]);
     }
 }
