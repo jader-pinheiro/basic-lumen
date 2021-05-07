@@ -111,7 +111,27 @@ $router->get('/', function () use ($router) {
         ],
     ];
 
-    $tt = $jader['janeiro'];
+
+
+    $janeiro['janeiro'] = $jader['janeiro'];
+    $fevereiro['fevereiro'] = $jader['fevereiro'];
+    $marco = $jader['marco'];
+    $abril = $jader['abril'];
+    $maio = $jader['maio'];
+    $junho = $jader['junho'];
+
+
+
+
+    array_push($newArray, $janeiro);
+    array_push($newArray, $fevereiro);
+    array_push($newArray, $marco);
+    array_push($newArray, $abril);
+    array_push($newArray, $maio);
+    array_push($newArray, $junho);
+    return $newArray;
+    // dd($newArray);
+
 
     // print_r($jader['janeiro']);
 
