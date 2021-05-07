@@ -11,6 +11,8 @@
 |
 */
 
+$router->get('/tester', 'ChangeListController@tester');
+
 $router->get('/', function () use ($router) {
 
 
