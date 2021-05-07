@@ -12,6 +12,8 @@ class ChangeListController extends Controller
 
         $teste = new OrderMonthService();
         // dd($teste);
-        return $teste->ChangeList();
+        $chk =  (array)$teste->ChangeList();
+
+        dd($chk[0]['janeiro']['alimentos']);
     }
 }
